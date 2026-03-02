@@ -70,12 +70,76 @@ Aegis uses a **protocol-based architecture** with four core abstractions that al
 - ProviderManager (active provider registry)
 - NetworkService (REST, SSE streaming, connection testing)
 
-### Phase 2 — Voice (Next Up)
-- Apple Speech provider (STT via Speech framework + TTS via AVSpeechSynthesizer)
-- ElevenLabs provider (TTS — user provides their own API key)
-- Custom Server voice provider
-- Voice chat mode UI (push-to-talk and hands-free)
-- Microphone permission handling
+### Phase 2 — Avatar, Voice & iPad UI ✅ COMPLETE
+
+#### Step 1 — Avatar Assets & Model ✅ COMPLETE
+- `Models/AvatarConfig.swift` — 6 avatars (3 male, 3 female), SF Symbol placeholders
+- Selection persisted via `@AppStorage("selectedAvatarID")`
+- AI-generated portraits added in Step 9 (Gemini Imagen 4.0)
+
+#### Step 2 — Avatar View with "Alive" Animations ✅ COMPLETE
+- `Views/Avatar/AvatarView.swift` — breathing (scale pulse 3s), blinking (random 3-5.5s), floating, mouth overlay
+- `SmallAvatarView` for message bubbles (24pt)
+- Cyan glow intensifies when speaking
+- Mouth driven by `mouthOpenness` binding (0.0-1.0)
+- `Views/Avatar/AvatarPickerView.swift` — grid with gender filter tabs, checkmark selection
+
+#### Step 3 — Apple Voice Selection & TTS ✅ COMPLETE
+- `Services/SpeechService.swift` — `@MainActor @Observable`, wraps `AVSpeechSynthesizer` with delegate
+- Multi-frequency mouth animation (natural oscillation + word-pulse from `willSpeak` callback)
+- Voice discovery grouped by quality tier (Premium/Enhanced/Default)
+- Preview playback, selected voice persisted in UserDefaults
+- `Views/Avatar/VoicePickerView.swift` — quality badges, play preview, select
+- `Providers/Voice/AppleVoiceProvider.swift` — full implementation with quality tiers
+- `Protocols/VoiceProvider.swift` — added `qualityTier` to `VoiceOption`
+- **100% free** — all Apple on-device, no API key needed
+
+#### Step 4 — Integrate Avatar into Chat ✅ COMPLETE
+- `Views/Chat/ChatView.swift` — hero avatar in empty state, `SpeechService` integration
+- `Views/Chat/MessageBubbleView.swift` — small avatar on assistant messages, speak/stop button
+- Avatar mouth animates during TTS playback
+
+#### Step 5 — Onboarding Avatar & Voice Step ✅ COMPLETE
+- `Views/Onboarding/AvatarVoiceStepView.swift` — combined avatar + voice picker
+- Inserted at position 2 (after AI Backend), totalSteps bumped to 5
+- Skip option to use defaults, iPad width constraint
+
+#### Step 6 — Settings Avatar & Voice Section ✅ COMPLETE
+- `Views/Settings/SettingsView.swift` — new "Avatar & Voice" section
+- Shows current avatar thumbnail and voice name
+- NavigationLink to dedicated AvatarPickerView and VoicePickerView
+
+#### Step 7 — Universal iPad/iPhone UI ✅ COMPLETE
+- `Views/Chat/ChatView.swift` — `NavigationSplitView` on iPad (permanent sidebar), `NavigationStack` on iPhone
+- `@Environment(\.horizontalSizeClass)` checks in ChatView and OnboardingContainerView
+- iPad onboarding constrained to 600pt max width
+- Larger avatar on iPad (120pt vs 100pt in empty state)
+
+#### Step 8 — Voice Chat, ElevenLabs, Server Voice ✅ COMPLETE
+- `Protocols/VoiceProvider.swift` — added `VoiceProviderType` enum (.apple, .elevenLabs, .customServer), `providerType`, `voiceID` param
+- `Providers/Voice/ElevenLabsProvider.swift` — full ElevenLabs TTS (xi-api-key auth, POST /text-to-speech, GET /voices)
+- `Providers/Voice/ServerVoiceProvider.swift` — full custom server voice (POST /synthesize, GET /voices, bearer auth)
+- `Services/VoiceProviderManager.swift` — mirrors ProviderManager pattern for voice, Keychain-backed ElevenLabs key
+- `Services/SpeechService.swift` — multi-provider TTS routing (Apple/cloud), AVAudioPlayer for MP3, metered mouth animation
+- `Services/SpeechRecognitionService.swift` — on-device STT (SFSpeechRecognizer), mic/speech permissions, tap-to-record
+- `Views/Chat/ChatView.swift` — mic button toggles recording, live transcription bar, permission alerts, keyboard dismissal
+- `Views/Avatar/VoicePickerView.swift` — segmented tabs per configured provider, cloud voice fetching
+- `Views/Settings/VoiceBackendSettingsView.swift` — add/remove/set-active voice providers
+- `Views/Settings/SettingsView.swift` — added Voice Providers nav link
+- `AegisApp.swift` — VoiceProviderManager injected via .environment()
+
+#### Step 9 — AI-Generated Avatar Images ✅ COMPLETE
+- 6 avatar portraits generated via Gemini Imagen 4.0 API
+- Added to `Assets.xcassets/` as proper imagesets (avatar_male1–3, avatar_female1–3)
+- `AvatarView` + `SmallAvatarView` load real PNGs via `UIImage(named:)`, gradient fallback if missing
+- `Services/AvatarImageGenerator.swift` — cached gradient fallbacks (NSCache) for performance
+
+#### Step 10 — Dashboard Home Tab ✅ COMPLETE
+- `Views/App/DashboardView.swift` — hero avatar with greeting, status cards (AI/Voice/Conversations/Avatar), quick actions, recent conversations
+- `Views/App/MainTabView.swift` — 3-tab layout: Home | Chat | Settings
+- Tab switching via NotificationCenter from quick action buttons
+
+#### Phase 2 — COMPLETE
 
 ### Phase 3 — Smart Home
 - HomeKit provider (discover rooms, control accessories, activate scenes)
@@ -133,6 +197,7 @@ Aegis/
 │   ├── AskAegisIntent.swift
 │   └── ControlLightsIntent.swift
 ├── Models/                         # SwiftData models
+│   ├── AvatarConfig.swift          # Phase 2: avatar data model
 │   ├── CameraConfig.swift
 │   ├── ChatMessage.swift
 │   └── Conversation.swift
@@ -157,14 +222,18 @@ Aegis/
 │   │   ├── HomeKitProvider.swift           # stub
 │   │   └── ServerSmartHomeProvider.swift   # stub
 │   └── Voice/
-│       ├── AppleVoiceProvider.swift        # partial
-│       ├── ElevenLabsProvider.swift        # stub
-│       └── ServerVoiceProvider.swift       # stub
+│       ├── AppleVoiceProvider.swift        # Phase 2: full TTS implementation
+│       ├── ElevenLabsProvider.swift        # Phase 2: full ElevenLabs TTS
+│       └── ServerVoiceProvider.swift       # Phase 2: custom server voice
 ├── Services/
+│   ├── AvatarImageGenerator.swift  # Phase 2: gradient avatars
 │   ├── KeychainService.swift
 │   ├── NetworkService.swift        # + NetworkError
 │   ├── NotificationService.swift   # partial
-│   └── ProviderManager.swift
+│   ├── ProviderManager.swift
+│   ├── SpeechRecognitionService.swift  # Phase 2: on-device STT
+│   ├── SpeechService.swift         # Phase 2: multi-provider TTS + metered mouth
+│   └── VoiceProviderManager.swift  # Phase 2: voice provider management
 ├── ViewModels/
 │   ├── CameraViewModel.swift       # stub
 │   ├── ChatViewModel.swift
@@ -174,7 +243,8 @@ Aegis/
 └── Views/
     ├── App/
     │   ├── ContentView.swift
-    │   └── MainTabView.swift
+    │   ├── DashboardView.swift        # Phase 2: home tab with status cards
+    │   └── MainTabView.swift          # 3 tabs: Home, Chat, Settings
     ├── Chat/
     │   ├── ChatView.swift
     │   ├── ConversationListView.swift
@@ -183,15 +253,21 @@ Aegis/
     ├── Components/
     │   ├── AegisTheme.swift        # + Color hex, AegisCard, CyanGlow modifiers
     │   └── CyanButton.swift        # + AegisCardView
+    ├── Avatar/                        # Phase 2
+    │   ├── AvatarPickerView.swift     # avatar selection grid
+    │   ├── AvatarView.swift           # animated avatar display
+    │   └── VoicePickerView.swift      # voice selection list
     ├── Onboarding/
     │   ├── AIBackendStepView.swift
+    │   ├── AvatarVoiceStepView.swift  # Phase 2: avatar + voice step
     │   ├── CameraStepView.swift
     │   ├── OnboardingContainerView.swift
     │   ├── SmartHomeStepView.swift
     │   └── WelcomeStepView.swift
     └── Settings/
         ├── AIBackendSettingsView.swift
-        └── SettingsView.swift
+        ├── SettingsView.swift
+        └── VoiceBackendSettingsView.swift  # Phase 2: voice provider settings
 ```
 
 ## Dependencies

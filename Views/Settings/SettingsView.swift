@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(ProviderManager.self) private var providerManager
+    @Environment(VoiceProviderManager.self) private var voiceProviderManager
     @State private var settingsVM = SettingsViewModel()
 
     var body: some View {
@@ -30,6 +31,63 @@ struct SettingsView: View {
                         }
                     } header: {
                         Text("AI")
+                            .foregroundStyle(AegisTheme.cyan)
+                    }
+                    .listRowBackground(AegisTheme.surface)
+
+                    // Avatar & Voice
+                    Section {
+                        NavigationLink {
+                            avatarSettingsDestination
+                        } label: {
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Avatar")
+                                        .foregroundStyle(.white)
+                                    Text(AvatarConfig.selected.name)
+                                        .font(.caption)
+                                        .foregroundStyle(AegisTheme.textSecondary)
+                                }
+                            } icon: {
+                                SmallAvatarView(avatar: AvatarConfig.selected, size: 24)
+                            }
+                        }
+
+                        NavigationLink {
+                            voiceSettingsDestination
+                        } label: {
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Voice")
+                                        .foregroundStyle(.white)
+                                    Text(SpeechService().selectedVoiceName)
+                                        .font(.caption)
+                                        .foregroundStyle(AegisTheme.textSecondary)
+                                }
+                            } icon: {
+                                Image(systemName: "waveform")
+                                    .foregroundStyle(AegisTheme.cyan)
+                            }
+                        }
+
+                        NavigationLink {
+                            VoiceBackendSettingsView()
+                        } label: {
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Voice Providers")
+                                        .foregroundStyle(.white)
+                                    Text("Active: \(voiceProviderManager.activeProviderType.displayName)")
+                                        .font(.caption)
+                                        .foregroundStyle(AegisTheme.textSecondary)
+                                }
+                            } icon: {
+                                Image(systemName: "speaker.wave.3.fill")
+                                    .foregroundStyle(AegisTheme.cyan)
+                            }
+                        }
+                    } header: {
+                        Text("Avatar & Voice")
                             .foregroundStyle(AegisTheme.cyan)
                     }
                     .listRowBackground(AegisTheme.surface)
@@ -80,7 +138,7 @@ struct SettingsView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Aegis")
                                     .foregroundStyle(.white)
-                                Text("Version 1.0.0 (Phase 1)")
+                                Text("Version 1.0.0 (Phase 2)")
                                     .font(.caption)
                                     .foregroundStyle(AegisTheme.textMuted)
                             }
@@ -90,7 +148,6 @@ struct SettingsView: View {
                         }
 
                         Button {
-                            // Reset onboarding
                             UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
                         } label: {
                             Label("Re-run Onboarding", systemImage: "arrow.counterclockwise")
@@ -109,5 +166,33 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbarColorScheme(.dark, for: .navigationBar)
         }
+    }
+
+    // MARK: - Settings Destinations
+
+    private var avatarSettingsDestination: some View {
+        ZStack {
+            AegisTheme.backgroundDeep.ignoresSafeArea()
+            ScrollView {
+                AvatarPickerView()
+                    .padding(.top, 20)
+                    .padding(.horizontal, 16)
+            }
+        }
+        .navigationTitle("Avatar")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+
+    private var voiceSettingsDestination: some View {
+        ZStack {
+            AegisTheme.backgroundDeep.ignoresSafeArea()
+            VoicePickerView()
+                .padding(.top, 20)
+                .padding(.horizontal, 16)
+        }
+        .navigationTitle("Voice")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
     }
 }

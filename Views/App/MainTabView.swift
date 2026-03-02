@@ -5,16 +5,23 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("Chat", systemImage: "message.fill", value: 0) {
+            Tab("Home", systemImage: "house.fill", value: 0) {
+                DashboardView()
+            }
+
+            Tab("Chat", systemImage: "message.fill", value: 1) {
                 ChatView()
             }
 
-            Tab("Settings", systemImage: "gearshape.fill", value: 3) {
+            Tab("Settings", systemImage: "gearshape.fill", value: 2) {
                 SettingsView()
             }
-
-            // Smart Home and Cameras tabs will be added in Phase 3 & 4
         }
         .tint(AegisTheme.cyan)
+        .onReceive(NotificationCenter.default.publisher(for: .switchToTab)) { notification in
+            if let tab = notification.object as? Int {
+                selectedTab = tab
+            }
+        }
     }
 }

@@ -36,6 +36,7 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         SWIFT_VERSION: "6.0"
         CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: S5V6M6YQ2Y
         ENABLE_PREVIEWS: "YES"
         # Privacy usage descriptions (required by Apple for App Store)
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "Aegis needs microphone access for voice commands and hands-free chat."

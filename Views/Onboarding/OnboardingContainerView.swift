@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OnboardingContainerView: View {
     @Environment(ProviderManager.self) private var providerManager
+    @Environment(\.horizontalSizeClass) private var sizeClass
     @State private var viewModel = OnboardingViewModel()
 
     var body: some View {
@@ -28,15 +29,21 @@ struct OnboardingContainerView: View {
                     AIBackendStepView(viewModel: viewModel, providerManager: providerManager)
                         .tag(1)
 
-                    SmartHomeStepView(viewModel: viewModel)
+                    AvatarVoiceStepView(viewModel: viewModel)
                         .tag(2)
 
-                    CameraStepView(viewModel: viewModel)
+                    SmartHomeStepView(viewModel: viewModel)
                         .tag(3)
+
+                    CameraStepView(viewModel: viewModel)
+                        .tag(4)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: viewModel.currentStep)
             }
+            // Constrain width on iPad for better readability
+            .frame(maxWidth: sizeClass == .regular ? 600 : .infinity)
+            .frame(maxWidth: .infinity)
         }
     }
 }

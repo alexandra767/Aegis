@@ -26,7 +26,7 @@ final class OnboardingViewModel {
     var cameraURL = ""
     var useHomeKitCameras = false
 
-    var totalSteps: Int { 4 }
+    var totalSteps: Int { 5 }
 
     func nextStep() {
         if currentStep < totalSteps - 1 {

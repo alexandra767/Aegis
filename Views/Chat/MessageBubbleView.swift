@@ -2,11 +2,18 @@ import SwiftUI
 
 struct MessageBubbleView: View {
     let message: ChatMessage
+    var speechService: SpeechService?
 
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             if message.isUser {
                 Spacer(minLength: 60)
+            }
+
+            // Small avatar for assistant messages
+            if message.isAssistant {
+                SmallAvatarView(avatar: AvatarConfig.selected, size: 24)
+                    .padding(.top, 4)
             }
 
             VStack(alignment: message.isUser ? .trailing : .leading, spacing: 4) {
@@ -20,7 +27,7 @@ struct MessageBubbleView: View {
                         .textSelection(.enabled)
                 }
 
-                // Metadata
+                // Metadata row
                 HStack(spacing: 6) {
                     if let provider = message.providerType, !message.isUser {
                         let type = AIProviderType(rawValue: provider)
@@ -36,6 +43,11 @@ struct MessageBubbleView: View {
                     Text(message.timestamp, style: .time)
                         .font(.caption2)
                         .foregroundStyle(AegisTheme.textMuted)
+
+                    // Speak button for assistant messages
+                    if message.isAssistant && !message.content.isEmpty && !message.isStreaming {
+                        speakButton
+                    }
                 }
             }
             .padding(.horizontal, 14)
@@ -46,6 +58,26 @@ struct MessageBubbleView: View {
             if message.isAssistant {
                 Spacer(minLength: 60)
             }
+        }
+    }
+
+    // MARK: - Speak Button
+
+    @ViewBuilder
+    private var speakButton: some View {
+        if let service = speechService {
+            Button {
+                if service.isSpeaking {
+                    service.stop()
+                } else {
+                    service.speak(text: message.content)
+                }
+            } label: {
+                Image(systemName: service.isSpeaking ? "stop.circle.fill" : "speaker.wave.2.fill")
+                    .font(.caption)
+                    .foregroundStyle(service.isSpeaking ? AegisTheme.orange : AegisTheme.cyan.opacity(0.7))
+            }
+            .buttonStyle(.plain)
         }
     }
 
@@ -80,7 +112,6 @@ struct MessageBubbleView: View {
     private var attributedContent: AttributedString {
         do {
             var attributed = try AttributedString(markdown: message.content)
-            // Style code blocks
             for run in attributed.runs {
                 if run.inlinePresentationIntent?.contains(.code) == true {
                     attributed[run.range].font = .system(.body, design: .monospaced)
