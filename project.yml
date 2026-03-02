@@ -1,0 +1,53 @@
+name: Aegis
+options:
+  bundleIdPrefix: com.alexandra767
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+targets:
+  Aegis:
+    type: application
+    platform: iOS
+    sources:
+      - path: .
+        excludes:
+          - "*.md"
+          - ".git/**"
+          - ".gitignore"
+          - "project.yml"
+          - "Aegis.xcodeproj/**"
+          - "DerivedData/**"
+          - "build/**"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alexandra767.aegis
+        PRODUCT_NAME: Aegis
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: 1
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_CFBundleDisplayName: Aegis
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_VERSION: "6.0"
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: "YES"
+        # Privacy usage descriptions (required by Apple for App Store)
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: "Aegis needs microphone access for voice commands and hands-free chat."
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: "Aegis uses speech recognition to convert your voice into text for AI conversations."
+        INFOPLIST_KEY_NSFaceIDUsageDescription: "Aegis uses Face ID to protect your conversations and API keys."
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: "Aegis connects to smart home devices and custom servers on your local network."
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+          SWIFT_COMPILATION_MODE: wholemodule

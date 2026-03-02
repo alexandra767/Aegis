@@ -1,8 +1,8 @@
 import AppIntents
 
 struct AskAegisIntent: AppIntent {
-    static var title: LocalizedStringResource = "Ask Aegis"
-    static var description: IntentDescription = "Send a message to Aegis and get a response"
+    static let title: LocalizedStringResource = "Ask Aegis"
+    static let description: IntentDescription = "Send a message to Aegis and get a response"
 
     @Parameter(title: "Message")
     var message: String

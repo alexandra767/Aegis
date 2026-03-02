@@ -140,55 +140,58 @@ struct ChatView: View {
 
     // MARK: - Input Bar
 
+    @ViewBuilder
     private var inputBar: some View {
-        HStack(spacing: 12) {
-            // Mic button (placeholder for Phase 2)
-            Button {
-                // Voice input — Phase 2
-            } label: {
-                Image(systemName: "mic.fill")
-                    .font(.title3)
-                    .foregroundStyle(AegisTheme.textMuted)
+        VStack(spacing: 0) {
+            // Error banner
+            if let error = viewModel?.errorMessage {
+                Text(error)
+                    .font(.caption)
+                    .foregroundStyle(AegisTheme.danger)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 4)
             }
 
-            // Text field
-            TextField("Message Aegis...", text: Binding(
-                get: { viewModel?.currentMessage ?? "" },
-                set: { viewModel?.currentMessage = $0 }
-            ), axis: .vertical)
-                .textFieldStyle(.plain)
-                .lineLimit(1...5)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(AegisTheme.surface)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .foregroundStyle(.white)
-
-            // Send / Stop button
-            Button {
-                if viewModel?.isStreaming == true {
-                    viewModel?.stopStreaming()
-                } else {
-                    viewModel?.sendMessage()
+            HStack(spacing: 12) {
+                // Mic button (placeholder for Phase 2)
+                Button {
+                    // Voice input — Phase 2
+                } label: {
+                    Image(systemName: "mic.fill")
+                        .font(.title3)
+                        .foregroundStyle(AegisTheme.textMuted)
                 }
-            } label: {
-                Image(systemName: viewModel?.isStreaming == true ? "stop.circle.fill" : "arrow.up.circle.fill")
-                    .font(.title2)
-                    .foregroundStyle(AegisTheme.cyan)
-            }
-            .disabled(viewModel?.currentMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true && viewModel?.isStreaming != true)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
-        .background(AegisTheme.background)
 
-        // Error banner
-        if let error = viewModel?.errorMessage {
-            Text(error)
-                .font(.caption)
-                .foregroundStyle(AegisTheme.danger)
-                .padding(.horizontal, 16)
-                .padding(.bottom, 4)
+                // Text field
+                TextField("Message Aegis...", text: Binding(
+                    get: { viewModel?.currentMessage ?? "" },
+                    set: { viewModel?.currentMessage = $0 }
+                ), axis: .vertical)
+                    .textFieldStyle(.plain)
+                    .lineLimit(1...5)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(AegisTheme.surface)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .foregroundStyle(.white)
+
+                // Send / Stop button
+                Button {
+                    if viewModel?.isStreaming == true {
+                        viewModel?.stopStreaming()
+                    } else {
+                        viewModel?.sendMessage()
+                    }
+                } label: {
+                    Image(systemName: viewModel?.isStreaming == true ? "stop.circle.fill" : "arrow.up.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(AegisTheme.cyan)
+                }
+                .disabled(viewModel?.currentMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true && viewModel?.isStreaming != true)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(AegisTheme.background)
         }
     }
 }

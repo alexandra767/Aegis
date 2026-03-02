@@ -1,8 +1,8 @@
 import AppIntents
 
 struct ActivateSceneIntent: AppIntent {
-    static var title: LocalizedStringResource = "Activate Scene"
-    static var description: IntentDescription = "Activate a smart home scene via Aegis"
+    static let title: LocalizedStringResource = "Activate Scene"
+    static let description: IntentDescription = "Activate a smart home scene via Aegis"
 
     @Parameter(title: "Scene Name")
     var sceneName: String

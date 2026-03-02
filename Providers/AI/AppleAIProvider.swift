@@ -41,10 +41,14 @@ struct AppleAIProvider: AIProvider {
                     prompt += "User: \(content)"
 
                     let stream = session.streamResponse(to: prompt)
+                    var previousText = ""
                     for try await partial in stream {
-                        if let text = partial.deltaContent {
-                            continuation.yield(text)
+                        let currentText = partial.content
+                        let delta = String(currentText.dropFirst(previousText.count))
+                        if !delta.isEmpty {
+                            continuation.yield(delta)
                         }
+                        previousText = currentText
                     }
                     continuation.finish()
                 } catch {

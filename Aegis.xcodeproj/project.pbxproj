@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B86A225AC5944092EA65211 /* AppleVoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A81AFB4142121B0FA50BF8 /* AppleVoiceProvider.swift */; };
+		1C42F57A00192FD4034B9613 /* ControlLightsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105F46A69F1921C8905445A /* ControlLightsIntent.swift */; };
+		26D0ABE4FE9FD01A4B9F313E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8F1AC6E1091AC92EF6C11 /* MainTabView.swift */; };
+		293FC49E73FE338B393C5EFA /* CameraConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEE3DD64F1280ECB2FF4CE2 /* CameraConfig.swift */; };
+		32A044791CCAE4F821F62C1B /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C2800760AA35260C4D1E34 /* AppIcon.png */; };
+		331818C0184A01935CF83FAD /* AegisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = "TEMP_26961767-A2D9-4D94-A1EA-B6AA0CCC45F1" /* AegisApp.swift */; };
+		35CEA1EAA181864E30667E03 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6DD82BC6CB3DCF2856AE /* SettingsView.swift */; };
+		36F23693B2C62CD3E306C64F /* HomeKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60987BB7A0A11516B924FF /* HomeKitProvider.swift */; };
+		38D172BE2AED74FD68FBBAA3 /* SmartHomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A04C1DC22CEE4F9C8684F /* SmartHomeProvider.swift */; };
+		3D2F76763F862B976F8D3825 /* ProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A89DFA8E6E885C87D480268 /* ProviderManager.swift */; };
+		478194D35F780B54CD8D11B3 /* ServerSmartHomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0971A4002238DE35C75FE1AB /* ServerSmartHomeProvider.swift */; };
+		4C6CE27090CF5E6A03AFB0BE /* CyanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD887313155F63FB4F0F1F /* CyanButton.swift */; };
+		504B773E3855EC0BBCE15527 /* AIBackendSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D43AF0511C21070E8E8AB /* AIBackendSettingsView.swift */; };
+		50F93BBE38A94F58BED567B5 /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90322EDB809A3A5BFCD49B28 /* AIProvider.swift */; };
+		5AA1B9CB201902E4EEF56202 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AA7F7F287145A6C3B7E71 /* MessageBubbleView.swift */; };
+		6C9F0959897E70A8E11DFA01 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB60863EF61C29F4C3B9087 /* LaunchScreen.png */; };
+		70888FFB3F4D2BEB4DFE0897 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744B7412A47BAE0E6C107A5 /* ContentView.swift */; };
+		7538733FA8798ADB4A741455 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D38686DCB9C51E7DABFE31 /* Conversation.swift */; };
+		78367FB9A404417F1FCE5D4B /* SmartHomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE0C2D34D5D4C2EA35DD80 /* SmartHomeStepView.swift */; };
+		7A236C5913884956F8600758 /* ServerVoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817DEB886166A18F04E93D1 /* ServerVoiceProvider.swift */; };
+		83849C7FCE9AAA58EF431C4D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD77888C5AFAB7D86155AF8 /* NotificationService.swift */; };
+		8EC28D2ACE6C30BDB81050D7 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59E7682495CB1EF2DA43F2 /* CameraViewModel.swift */; };
+		90BB4D51888A5AA6F1D930A2 /* RTSPCameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08690E4E05915EB50CDDD50A /* RTSPCameraSource.swift */; };
+		90FB9CCDD0BF4FD151138A4D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E007631E7A3D970D1A1FE /* ChatViewModel.swift */; };
+		921372A8AC933725528DA813 /* VoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F46EFB0BA64916072FE3B /* VoiceProvider.swift */; };
+		95D13DDAF6F48873BD79B3D4 /* AegisTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA893344BA10DC060A61D280 /* AegisTheme.swift */; };
+		9801273C95592D950B36DDB6 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5B265570A299705DFB937 /* ModelPickerView.swift */; };
+		A6F287B3EED5888251CE8532 /* HomeKitCameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4277FAD9D8C6EFD6030979 /* HomeKitCameraSource.swift */; };
+		A7AF5F6620DB88A75E82BFD3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A26E39E031AC9C5C7A87C /* ChatView.swift */; };
+		AA815AAC954145AC4A11F6FB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E9254CAF3106ED7872B054 /* KeychainService.swift */; };
+		AD38E297C5F7DAB9AFB33FA9 /* AskAegisIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F103DA5D7C71CB26CBBC56 /* AskAegisIntent.swift */; };
+		AF8B54F9A3671F66A080B544 /* AnthropicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8604F8239F5811BA005763 /* AnthropicProvider.swift */; };
+		B67AEC01B1CCAF67BAFE9039 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_CAF68615-C765-442C-8696-E21BD451F8E6" /* PrivacyInfo.xcprivacy */; };
+		BC546CE535EDAC5265BC32BB /* CameraStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEF07FD8CDD68846491EA6 /* CameraStepView.swift */; };
+		C1487F51FDA8D6B1CEBCEB8F /* ChatBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 474678DED1335DAA6989ABF6 /* ChatBackground.png */; };
+		C3C21BCAD2791A14F55D3467 /* OpenAIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530E24CF5C7D1E84BD5A4025 /* OpenAIProvider.swift */; };
+		C7CBCA3D2C4E6308BA9853A2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04854E68E35D3EC9FFA37E2A /* SettingsViewModel.swift */; };
+		CB04F2B56CF805EF88487320 /* GroqProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F91D747601C8C37858E0 /* GroqProvider.swift */; };
+		CF99883AC339104ED88BEE8B /* GeminiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4A337E5B8401921BF95C0 /* GeminiProvider.swift */; };
+		CFE350628FB798510FBD78C7 /* WelcomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EC07329D6B8362EF753C62 /* WelcomeStepView.swift */; };
+		D0BEF572DD2E5E73EE77A28B /* CustomServerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7D3F3920910B4F2D7E348D /* CustomServerProvider.swift */; };
+		D69783F4A416021202FA0BC0 /* OnboardingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2D75BCF3D50742083AC9D5 /* OnboardingBackground.png */; };
+		D771A54A1B9803DF5D18B4CF /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C05DAC9D44C5E9105CEDA /* OnboardingViewModel.swift */; };
+		D9559FD0FEA5471AF0B18EA3 /* CameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54073282D356F83D619BDA /* CameraSource.swift */; };
+		DB0DF65C9C8DDB50A757BFBE /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69394D46EB960DDD730F9FCB /* OnboardingContainerView.swift */; };
+		DB9ADF4366ACE0DD853DDDC0 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04926753CEFA18F165B4C6 /* ConversationListView.swift */; };
+		DDBB0092307990B8AB2D300A /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C2F5F295E9F0A662F9977 /* ChatMessage.swift */; };
+		DE469C9756DD20D0F25CAB67 /* SmartHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFE0AD28AE86506B78B6C7 /* SmartHomeViewModel.swift */; };
+		DF7EC52E768F7BFFB06880D2 /* AIBackendStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746FBB4FFD762D24CFDC75E7 /* AIBackendStepView.swift */; };
+		E3DE27AF5B35BC9EA8AD7326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_3C8D9AE2-A573-48C1-A7B1-9F3154D7B969" /* Assets.xcassets */; };
+		E61E52A817EFD9DE4BB76730 /* ServerCameraRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32232D988FE5D6084179BF3 /* ServerCameraRelay.swift */; };
+		E8AFA582B73662826B32D8A6 /* ElevenLabsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E62C4801FECC7E441B3BB0A /* ElevenLabsProvider.swift */; };
+		EC35F0ECF53312352B70AD0C /* AppleAIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BCDC2748BA7005CDC146F /* AppleAIProvider.swift */; };
+		F1493EF1CD779A515F9C65D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EB4FF9D3D60783E5A5EA3 /* NetworkService.swift */; };
+		F541486060F38A0B03815F23 /* ActivateSceneIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0404769D46C7613D662BFE1 /* ActivateSceneIntent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04854E68E35D3EC9FFA37E2A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0817DEB886166A18F04E93D1 /* ServerVoiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerVoiceProvider.swift; sourceTree = "<group>"; };
+		08690E4E05915EB50CDDD50A /* RTSPCameraSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTSPCameraSource.swift; sourceTree = "<group>"; };
+		090A26E39E031AC9C5C7A87C /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		0971A4002238DE35C75FE1AB /* ServerSmartHomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSmartHomeProvider.swift; sourceTree = "<group>"; };
+		0A89DFA8E6E885C87D480268 /* ProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderManager.swift; sourceTree = "<group>"; };
+		1E62C4801FECC7E441B3BB0A /* ElevenLabsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsProvider.swift; sourceTree = "<group>"; };
+		21E9254CAF3106ED7872B054 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		2275F91D747601C8C37858E0 /* GroqProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroqProvider.swift; sourceTree = "<group>"; };
+		24AD887313155F63FB4F0F1F /* CyanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyanButton.swift; sourceTree = "<group>"; };
+		2CB60863EF61C29F4C3B9087 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		2F8C2F5F295E9F0A662F9977 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		30D4A337E5B8401921BF95C0 /* GeminiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiProvider.swift; sourceTree = "<group>"; };
+		33C8F1AC6E1091AC92EF6C11 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		389EB4FF9D3D60783E5A5EA3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3D54073282D356F83D619BDA /* CameraSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSource.swift; sourceTree = "<group>"; };
+		3E3D43AF0511C21070E8E8AB /* AIBackendSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendSettingsView.swift; sourceTree = "<group>"; };
+		43F103DA5D7C71CB26CBBC56 /* AskAegisIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskAegisIntent.swift; sourceTree = "<group>"; };
+		452BCDC2748BA7005CDC146F /* AppleAIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAIProvider.swift; sourceTree = "<group>"; };
+		474678DED1335DAA6989ABF6 /* ChatBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatBackground.png; sourceTree = "<group>"; };
+		530E24CF5C7D1E84BD5A4025 /* OpenAIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIProvider.swift; sourceTree = "<group>"; };
+		539A04C1DC22CEE4F9C8684F /* SmartHomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeProvider.swift; sourceTree = "<group>"; };
+		58C2800760AA35260C4D1E34 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		5D4277FAD9D8C6EFD6030979 /* HomeKitCameraSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitCameraSource.swift; sourceTree = "<group>"; };
+		67A81AFB4142121B0FA50BF8 /* AppleVoiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleVoiceProvider.swift; sourceTree = "<group>"; };
+		69394D46EB960DDD730F9FCB /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		6AEE3DD64F1280ECB2FF4CE2 /* CameraConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfig.swift; sourceTree = "<group>"; };
+		6CCD6DD82BC6CB3DCF2856AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6E04926753CEFA18F165B4C6 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		746FBB4FFD762D24CFDC75E7 /* AIBackendStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendStepView.swift; sourceTree = "<group>"; };
+		7744B7412A47BAE0E6C107A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		78EC07329D6B8362EF753C62 /* WelcomeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeStepView.swift; sourceTree = "<group>"; };
+		8062DAFB759A5F4F2DEA7F6B /* Aegis.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Aegis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DEF07FD8CDD68846491EA6 /* CameraStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStepView.swift; sourceTree = "<group>"; };
+		8B2E007631E7A3D970D1A1FE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		8E60987BB7A0A11516B924FF /* HomeKitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitProvider.swift; sourceTree = "<group>"; };
+		90322EDB809A3A5BFCD49B28 /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
+		969F46EFB0BA64916072FE3B /* VoiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceProvider.swift; sourceTree = "<group>"; };
+		96AFE0AD28AE86506B78B6C7 /* SmartHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeViewModel.swift; sourceTree = "<group>"; };
+		9B2AA7F7F287145A6C3B7E71 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		AF7D3F3920910B4F2D7E348D /* CustomServerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomServerProvider.swift; sourceTree = "<group>"; };
+		B0404769D46C7613D662BFE1 /* ActivateSceneIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateSceneIntent.swift; sourceTree = "<group>"; };
+		B105F46A69F1921C8905445A /* ControlLightsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlLightsIntent.swift; sourceTree = "<group>"; };
+		BF59E7682495CB1EF2DA43F2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		BF8604F8239F5811BA005763 /* AnthropicProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnthropicProvider.swift; sourceTree = "<group>"; };
+		C4D38686DCB9C51E7DABFE31 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		CCD77888C5AFAB7D86155AF8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		D32232D988FE5D6084179BF3 /* ServerCameraRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCameraRelay.swift; sourceTree = "<group>"; };
+		D3DE0C2D34D5D4C2EA35DD80 /* SmartHomeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeStepView.swift; sourceTree = "<group>"; };
+		D9B5B265570A299705DFB937 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
+		DB2D75BCF3D50742083AC9D5 /* OnboardingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnboardingBackground.png; sourceTree = "<group>"; };
+		F73C05DAC9D44C5E9105CEDA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		FA893344BA10DC060A61D280 /* AegisTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AegisTheme.swift; sourceTree = "<group>"; };
+		"TEMP_26961767-A2D9-4D94-A1EA-B6AA0CCC45F1" /* AegisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AegisApp.swift; sourceTree = "<group>"; };
+		"TEMP_3C8D9AE2-A573-48C1-A7B1-9F3154D7B969" /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		"TEMP_CAF68615-C765-442C-8696-E21BD451F8E6" /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0AAAAFCD0CDB02E2FCB5B818 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7744B7412A47BAE0E6C107A5 /* ContentView.swift */,
+				33C8F1AC6E1091AC92EF6C11 /* MainTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		392625AD6BB3926E53C53250 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				6174707BECCA7D39286DF7B6 /* AI */,
+				E9EBD4E1B4F5BE8FE7BC90A9 /* Camera */,
+				D9F01363653C91159E674919 /* SmartHome */,
+				A3531FF879E700523A27FB0F /* Voice */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		45FA45F469A02FF5399BB930 /* GeneratedImages */ = {
+			isa = PBXGroup;
+			children = (
+				58C2800760AA35260C4D1E34 /* AppIcon.png */,
+				474678DED1335DAA6989ABF6 /* ChatBackground.png */,
+				2CB60863EF61C29F4C3B9087 /* LaunchScreen.png */,
+				DB2D75BCF3D50742083AC9D5 /* OnboardingBackground.png */,
+			);
+			path = GeneratedImages;
+			sourceTree = "<group>";
+		};
+		4649F9D2E0A58FA23C734ADF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				21E9254CAF3106ED7872B054 /* KeychainService.swift */,
+				389EB4FF9D3D60783E5A5EA3 /* NetworkService.swift */,
+				CCD77888C5AFAB7D86155AF8 /* NotificationService.swift */,
+				0A89DFA8E6E885C87D480268 /* ProviderManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4B30AE104CEBEAC5D2591108 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				90322EDB809A3A5BFCD49B28 /* AIProvider.swift */,
+				3D54073282D356F83D619BDA /* CameraSource.swift */,
+				539A04C1DC22CEE4F9C8684F /* SmartHomeProvider.swift */,
+				969F46EFB0BA64916072FE3B /* VoiceProvider.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		50D0A2A1E229FE1B56E19372 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8062DAFB759A5F4F2DEA7F6B /* Aegis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6174707BECCA7D39286DF7B6 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				BF8604F8239F5811BA005763 /* AnthropicProvider.swift */,
+				452BCDC2748BA7005CDC146F /* AppleAIProvider.swift */,
+				AF7D3F3920910B4F2D7E348D /* CustomServerProvider.swift */,
+				30D4A337E5B8401921BF95C0 /* GeminiProvider.swift */,
+				2275F91D747601C8C37858E0 /* GroqProvider.swift */,
+				530E24CF5C7D1E84BD5A4025 /* OpenAIProvider.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		65826C8BDB2150F238C771FD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				746FBB4FFD762D24CFDC75E7 /* AIBackendStepView.swift */,
+				86DEF07FD8CDD68846491EA6 /* CameraStepView.swift */,
+				69394D46EB960DDD730F9FCB /* OnboardingContainerView.swift */,
+				D3DE0C2D34D5D4C2EA35DD80 /* SmartHomeStepView.swift */,
+				78EC07329D6B8362EF753C62 /* WelcomeStepView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		75D3091B55C949DC25CD1851 = {
+			isa = PBXGroup;
+			children = (
+				C6742DD674C91B6B03CA823C /* Assets */,
+				7F27832E7C5581BAFE2B5F0F /* Intents */,
+				D2A03F27D1AD5DD1289210C5 /* Models */,
+				4B30AE104CEBEAC5D2591108 /* Protocols */,
+				392625AD6BB3926E53C53250 /* Providers */,
+				4649F9D2E0A58FA23C734ADF /* Services */,
+				89163620E0ECD5835C3307AA /* ViewModels */,
+				871351BA34A6F65D8947DCDA /* Views */,
+				50D0A2A1E229FE1B56E19372 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F27832E7C5581BAFE2B5F0F /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				B0404769D46C7613D662BFE1 /* ActivateSceneIntent.swift */,
+				43F103DA5D7C71CB26CBBC56 /* AskAegisIntent.swift */,
+				B105F46A69F1921C8905445A /* ControlLightsIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		871351BA34A6F65D8947DCDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AAAAFCD0CDB02E2FCB5B818 /* App */,
+				CB0138672F6E29C8E8A9C7CA /* Chat */,
+				9F0EBA00406512C9C65573CC /* Components */,
+				65826C8BDB2150F238C771FD /* Onboarding */,
+				B4ADE02961D7C48941BB32FD /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89163620E0ECD5835C3307AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF59E7682495CB1EF2DA43F2 /* CameraViewModel.swift */,
+				8B2E007631E7A3D970D1A1FE /* ChatViewModel.swift */,
+				F73C05DAC9D44C5E9105CEDA /* OnboardingViewModel.swift */,
+				04854E68E35D3EC9FFA37E2A /* SettingsViewModel.swift */,
+				96AFE0AD28AE86506B78B6C7 /* SmartHomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9F0EBA00406512C9C65573CC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA893344BA10DC060A61D280 /* AegisTheme.swift */,
+				24AD887313155F63FB4F0F1F /* CyanButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A3531FF879E700523A27FB0F /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				67A81AFB4142121B0FA50BF8 /* AppleVoiceProvider.swift */,
+				1E62C4801FECC7E441B3BB0A /* ElevenLabsProvider.swift */,
+				0817DEB886166A18F04E93D1 /* ServerVoiceProvider.swift */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		B4ADE02961D7C48941BB32FD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3E3D43AF0511C21070E8E8AB /* AIBackendSettingsView.swift */,
+				6CCD6DD82BC6CB3DCF2856AE /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C6742DD674C91B6B03CA823C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				45FA45F469A02FF5399BB930 /* GeneratedImages */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		CB0138672F6E29C8E8A9C7CA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				090A26E39E031AC9C5C7A87C /* ChatView.swift */,
+				6E04926753CEFA18F165B4C6 /* ConversationListView.swift */,
+				9B2AA7F7F287145A6C3B7E71 /* MessageBubbleView.swift */,
+				D9B5B265570A299705DFB937 /* ModelPickerView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D2A03F27D1AD5DD1289210C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6AEE3DD64F1280ECB2FF4CE2 /* CameraConfig.swift */,
+				2F8C2F5F295E9F0A662F9977 /* ChatMessage.swift */,
+				C4D38686DCB9C51E7DABFE31 /* Conversation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D9F01363653C91159E674919 /* SmartHome */ = {
+			isa = PBXGroup;
+			children = (
+				8E60987BB7A0A11516B924FF /* HomeKitProvider.swift */,
+				0971A4002238DE35C75FE1AB /* ServerSmartHomeProvider.swift */,
+			);
+			path = SmartHome;
+			sourceTree = "<group>";
+		};
+		E9EBD4E1B4F5BE8FE7BC90A9 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				5D4277FAD9D8C6EFD6030979 /* HomeKitCameraSource.swift */,
+				08690E4E05915EB50CDDD50A /* RTSPCameraSource.swift */,
+				D32232D988FE5D6084179BF3 /* ServerCameraRelay.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		"TEMP_196FCCCB-4849-4EDA-95F5-94398BF0ACC4" /* Aegis */ = {
+			isa = PBXGroup;
+			children = (
+				"TEMP_3C8D9AE2-A573-48C1-A7B1-9F3154D7B969" /* Assets.xcassets */,
+				"TEMP_26961767-A2D9-4D94-A1EA-B6AA0CCC45F1" /* AegisApp.swift */,
+				"TEMP_CAF68615-C765-442C-8696-E21BD451F8E6" /* PrivacyInfo.xcprivacy */,
+				89163620E0ECD5835C3307AA /* ViewModels */,
+				392625AD6BB3926E53C53250 /* Providers */,
+				D2A03F27D1AD5DD1289210C5 /* Models */,
+				7F27832E7C5581BAFE2B5F0F /* Intents */,
+				871351BA34A6F65D8947DCDA /* Views */,
+				C6742DD674C91B6B03CA823C /* Assets */,
+				4B30AE104CEBEAC5D2591108 /* Protocols */,
+				4649F9D2E0A58FA23C734ADF /* Services */,
+			);
+			path = Aegis;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B29AD1496FC1D1ADFB7B324 /* Aegis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A2E7CAC3BFF7017714C932 /* Build configuration list for PBXNativeTarget "Aegis" */;
+			buildPhases = (
+				B2CA4955498C9770B9754440 /* Sources */,
+				B3182E8A7010051666B062BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aegis;
+			packageProductDependencies = (
+			);
+			productName = Aegis;
+			productReference = 8062DAFB759A5F4F2DEA7F6B /* Aegis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		070B476F714B6395707EF14A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7B29AD1496FC1D1ADFB7B324 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6A1C7E404BB2474D71BAA732 /* Build configuration list for PBXProject "Aegis" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 75D3091B55C949DC25CD1851;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B29AD1496FC1D1ADFB7B324 /* Aegis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3182E8A7010051666B062BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A044791CCAE4F821F62C1B /* AppIcon.png in Resources */,
+				E3DE27AF5B35BC9EA8AD7326 /* Assets.xcassets in Resources */,
+				C1487F51FDA8D6B1CEBCEB8F /* ChatBackground.png in Resources */,
+				6C9F0959897E70A8E11DFA01 /* LaunchScreen.png in Resources */,
+				D69783F4A416021202FA0BC0 /* OnboardingBackground.png in Resources */,
+				B67AEC01B1CCAF67BAFE9039 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2CA4955498C9770B9754440 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				504B773E3855EC0BBCE15527 /* AIBackendSettingsView.swift in Sources */,
+				DF7EC52E768F7BFFB06880D2 /* AIBackendStepView.swift in Sources */,
+				50F93BBE38A94F58BED567B5 /* AIProvider.swift in Sources */,
+				F541486060F38A0B03815F23 /* ActivateSceneIntent.swift in Sources */,
+				331818C0184A01935CF83FAD /* AegisApp.swift in Sources */,
+				95D13DDAF6F48873BD79B3D4 /* AegisTheme.swift in Sources */,
+				AF8B54F9A3671F66A080B544 /* AnthropicProvider.swift in Sources */,
+				EC35F0ECF53312352B70AD0C /* AppleAIProvider.swift in Sources */,
+				1B86A225AC5944092EA65211 /* AppleVoiceProvider.swift in Sources */,
+				AD38E297C5F7DAB9AFB33FA9 /* AskAegisIntent.swift in Sources */,
+				293FC49E73FE338B393C5EFA /* CameraConfig.swift in Sources */,
+				D9559FD0FEA5471AF0B18EA3 /* CameraSource.swift in Sources */,
+				BC546CE535EDAC5265BC32BB /* CameraStepView.swift in Sources */,
+				8EC28D2ACE6C30BDB81050D7 /* CameraViewModel.swift in Sources */,
+				DDBB0092307990B8AB2D300A /* ChatMessage.swift in Sources */,
+				A7AF5F6620DB88A75E82BFD3 /* ChatView.swift in Sources */,
+				90FB9CCDD0BF4FD151138A4D /* ChatViewModel.swift in Sources */,
+				70888FFB3F4D2BEB4DFE0897 /* ContentView.swift in Sources */,
+				1C42F57A00192FD4034B9613 /* ControlLightsIntent.swift in Sources */,
+				7538733FA8798ADB4A741455 /* Conversation.swift in Sources */,
+				DB9ADF4366ACE0DD853DDDC0 /* ConversationListView.swift in Sources */,
+				D0BEF572DD2E5E73EE77A28B /* CustomServerProvider.swift in Sources */,
+				4C6CE27090CF5E6A03AFB0BE /* CyanButton.swift in Sources */,
+				E8AFA582B73662826B32D8A6 /* ElevenLabsProvider.swift in Sources */,
+				CF99883AC339104ED88BEE8B /* GeminiProvider.swift in Sources */,
+				CB04F2B56CF805EF88487320 /* GroqProvider.swift in Sources */,
+				A6F287B3EED5888251CE8532 /* HomeKitCameraSource.swift in Sources */,
+				36F23693B2C62CD3E306C64F /* HomeKitProvider.swift in Sources */,
+				AA815AAC954145AC4A11F6FB /* KeychainService.swift in Sources */,
+				26D0ABE4FE9FD01A4B9F313E /* MainTabView.swift in Sources */,
+				5AA1B9CB201902E4EEF56202 /* MessageBubbleView.swift in Sources */,
+				9801273C95592D950B36DDB6 /* ModelPickerView.swift in Sources */,
+				F1493EF1CD779A515F9C65D2 /* NetworkService.swift in Sources */,
+				83849C7FCE9AAA58EF431C4D /* NotificationService.swift in Sources */,
+				DB0DF65C9C8DDB50A757BFBE /* OnboardingContainerView.swift in Sources */,
+				D771A54A1B9803DF5D18B4CF /* OnboardingViewModel.swift in Sources */,
+				C3C21BCAD2791A14F55D3467 /* OpenAIProvider.swift in Sources */,
+				3D2F76763F862B976F8D3825 /* ProviderManager.swift in Sources */,
+				90BB4D51888A5AA6F1D930A2 /* RTSPCameraSource.swift in Sources */,
+				E61E52A817EFD9DE4BB76730 /* ServerCameraRelay.swift in Sources */,
+				478194D35F780B54CD8D11B3 /* ServerSmartHomeProvider.swift in Sources */,
+				7A236C5913884956F8600758 /* ServerVoiceProvider.swift in Sources */,
+				35CEA1EAA181864E30667E03 /* SettingsView.swift in Sources */,
+				C7CBCA3D2C4E6308BA9853A2 /* SettingsViewModel.swift in Sources */,
+				38D172BE2AED74FD68FBBAA3 /* SmartHomeProvider.swift in Sources */,
+				78367FB9A404417F1FCE5D4B /* SmartHomeStepView.swift in Sources */,
+				DE469C9756DD20D0F25CAB67 /* SmartHomeViewModel.swift in Sources */,
+				921372A8AC933725528DA813 /* VoiceProvider.swift in Sources */,
+				CFE350628FB798510FBD78C7 /* WelcomeStepView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4C690ABEB5A9286A91E7B6AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Aegis;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Aegis uses Face ID to protect your conversations and API keys.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Aegis connects to smart home devices and custom servers on your local network.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Aegis needs microphone access for voice commands and hands-free chat.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Aegis uses speech recognition to convert your voice into text for AI conversations.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexandra767.aegis;
+				PRODUCT_NAME = Aegis;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		57A306347206290EE1D4F1E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5EC24325B7D8C4403E0D7497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		67F8921229C0A0B1FBF8DBAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Aegis;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Aegis uses Face ID to protect your conversations and API keys.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Aegis connects to smart home devices and custom servers on your local network.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Aegis needs microphone access for voice commands and hands-free chat.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Aegis uses speech recognition to convert your voice into text for AI conversations.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexandra767.aegis;
+				PRODUCT_NAME = Aegis;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A1C7E404BB2474D71BAA732 /* Build configuration list for PBXProject "Aegis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EC24325B7D8C4403E0D7497 /* Debug */,
+				57A306347206290EE1D4F1E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		79A2E7CAC3BFF7017714C932 /* Build configuration list for PBXNativeTarget "Aegis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C690ABEB5A9286A91E7B6AD /* Debug */,
+				67F8921229C0A0B1FBF8DBAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 070B476F714B6395707EF14A /* Project object */;
+}

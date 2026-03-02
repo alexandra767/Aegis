@@ -1,8 +1,8 @@
 import AppIntents
 
 struct ControlLightsIntent: AppIntent {
-    static var title: LocalizedStringResource = "Control Lights"
-    static var description: IntentDescription = "Control smart home lights via Aegis"
+    static let title: LocalizedStringResource = "Control Lights"
+    static let description: IntentDescription = "Control smart home lights via Aegis"
 
     @Parameter(title: "Room")
     var room: String

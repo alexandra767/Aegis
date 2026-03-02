@@ -64,6 +64,13 @@ struct AnthropicProvider: AIProvider {
             body["system"] = systemPrompt
         }
 
+        let httpBody: Data
+        do {
+            httpBody = try JSONSerialization.data(withJSONObject: body)
+        } catch {
+            return AsyncThrowingStream { $0.finish(throwing: error) }
+        }
+
         return AsyncThrowingStream { continuation in
             Task {
                 do {
@@ -72,7 +79,7 @@ struct AnthropicProvider: AIProvider {
                     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                     request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
                     request.setValue("2023-06-01", forHTTPHeaderField: "anthropic-version")
-                    request.httpBody = try JSONSerialization.data(withJSONObject: body)
+                    request.httpBody = httpBody
 
                     let (bytes, response) = try await URLSession.shared.bytes(for: request)
                     guard let http = response as? HTTPURLResponse else {
