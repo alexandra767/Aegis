@@ -15,6 +15,7 @@
 		1C42F57A00192FD4034B9613 /* ControlLightsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105F46A69F1921C8905445A /* ControlLightsIntent.swift */; };
 		26D0ABE4FE9FD01A4B9F313E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8F1AC6E1091AC92EF6C11 /* MainTabView.swift */; };
 		293FC49E73FE338B393C5EFA /* CameraConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEE3DD64F1280ECB2FF4CE2 /* CameraConfig.swift */; };
+		2DA56BE9E9FF31B9CFFEFDF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_1CDAC52D-E468-49FA-9582-46BFB05D2CE3" /* Assets.xcassets */; };
 		32A044791CCAE4F821F62C1B /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C2800760AA35260C4D1E34 /* AppIcon.png */; };
 		35CEA1EAA181864E30667E03 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6DD82BC6CB3DCF2856AE /* SettingsView.swift */; };
 		36F23693B2C62CD3E306C64F /* HomeKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60987BB7A0A11516B924FF /* HomeKitProvider.swift */; };
@@ -32,24 +33,24 @@
 		6C9F0959897E70A8E11DFA01 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB60863EF61C29F4C3B9087 /* LaunchScreen.png */; };
 		70888FFB3F4D2BEB4DFE0897 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744B7412A47BAE0E6C107A5 /* ContentView.swift */; };
 		71274C201E2938CC019189FF /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C59CF4334AAA98EB83C9B /* AvatarView.swift */; };
-		751EB90AB105A5A5FEFB2422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_ECB4595F-CDFF-48DF-9A86-0BFC1F36B353" /* Assets.xcassets */; };
 		7538733FA8798ADB4A741455 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D38686DCB9C51E7DABFE31 /* Conversation.swift */; };
 		78367FB9A404417F1FCE5D4B /* SmartHomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE0C2D34D5D4C2EA35DD80 /* SmartHomeStepView.swift */; };
 		7A236C5913884956F8600758 /* ServerVoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817DEB886166A18F04E93D1 /* ServerVoiceProvider.swift */; };
-		7A7C9ABD8F098162714EA11D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_53975E0C-60F7-4B76-8578-2EBE5DEA58AC" /* PrivacyInfo.xcprivacy */; };
 		83849C7FCE9AAA58EF431C4D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD77888C5AFAB7D86155AF8 /* NotificationService.swift */; };
+		88450017DA9C307E8E8CEE8F /* LiveAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E290C54DB55505F496031 /* LiveAvatarView.swift */; };
 		8EC28D2ACE6C30BDB81050D7 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59E7682495CB1EF2DA43F2 /* CameraViewModel.swift */; };
 		90BB4D51888A5AA6F1D930A2 /* RTSPCameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08690E4E05915EB50CDDD50A /* RTSPCameraSource.swift */; };
 		90FB9CCDD0BF4FD151138A4D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E007631E7A3D970D1A1FE /* ChatViewModel.swift */; };
 		921372A8AC933725528DA813 /* VoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F46EFB0BA64916072FE3B /* VoiceProvider.swift */; };
+		95845D6355E6EBA19879F696 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = "TEMP_58F9C35D-E690-4E4E-BFB8-E8B1A648BAAA" /* PrivacyInfo.xcprivacy */; };
 		95D13DDAF6F48873BD79B3D4 /* AegisTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA893344BA10DC060A61D280 /* AegisTheme.swift */; };
 		9801273C95592D950B36DDB6 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5B265570A299705DFB937 /* ModelPickerView.swift */; };
 		A6F287B3EED5888251CE8532 /* HomeKitCameraSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4277FAD9D8C6EFD6030979 /* HomeKitCameraSource.swift */; };
 		A7AF5F6620DB88A75E82BFD3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A26E39E031AC9C5C7A87C /* ChatView.swift */; };
 		AA815AAC954145AC4A11F6FB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E9254CAF3106ED7872B054 /* KeychainService.swift */; };
-		ACCFA98A473AA9089647178E /* AegisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = "TEMP_691B2261-D79D-4E8F-800A-07416CEE8CCE" /* AegisApp.swift */; };
 		AD38E297C5F7DAB9AFB33FA9 /* AskAegisIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F103DA5D7C71CB26CBBC56 /* AskAegisIntent.swift */; };
 		AF8B54F9A3671F66A080B544 /* AnthropicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8604F8239F5811BA005763 /* AnthropicProvider.swift */; };
+		AFE255AE1B1E747CD477FC61 /* AegisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = "TEMP_27CA5B52-0635-48C8-B97B-F52700C477E2" /* AegisApp.swift */; };
 		BC546CE535EDAC5265BC32BB /* CameraStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DEF07FD8CDD68846491EA6 /* CameraStepView.swift */; };
 		C1487F51FDA8D6B1CEBCEB8F /* ChatBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 474678DED1335DAA6989ABF6 /* ChatBackground.png */; };
 		C3C21BCAD2791A14F55D3467 /* OpenAIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530E24CF5C7D1E84BD5A4025 /* OpenAIProvider.swift */; };
@@ -137,12 +138,13 @@
 		D9B5B265570A299705DFB937 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
 		DB2D75BCF3D50742083AC9D5 /* OnboardingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnboardingBackground.png; sourceTree = "<group>"; };
 		DD2C59CF4334AAA98EB83C9B /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		E04E290C54DB55505F496031 /* LiveAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAvatarView.swift; sourceTree = "<group>"; };
 		F5EA4FF4BCF8FC8029FA8F0D /* AvatarImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageGenerator.swift; sourceTree = "<group>"; };
 		F73C05DAC9D44C5E9105CEDA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		FA893344BA10DC060A61D280 /* AegisTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AegisTheme.swift; sourceTree = "<group>"; };
-		"TEMP_53975E0C-60F7-4B76-8578-2EBE5DEA58AC" /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		"TEMP_691B2261-D79D-4E8F-800A-07416CEE8CCE" /* AegisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AegisApp.swift; sourceTree = "<group>"; };
-		"TEMP_ECB4595F-CDFF-48DF-9A86-0BFC1F36B353" /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		"TEMP_1CDAC52D-E468-49FA-9582-46BFB05D2CE3" /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		"TEMP_27CA5B52-0635-48C8-B97B-F52700C477E2" /* AegisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AegisApp.swift; sourceTree = "<group>"; };
+		"TEMP_58F9C35D-E690-4E4E-BFB8-E8B1A648BAAA" /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -352,6 +354,7 @@
 			children = (
 				68B5A7BDAD2AA2A34C7FD7D3 /* AvatarPickerView.swift */,
 				DD2C59CF4334AAA98EB83C9B /* AvatarView.swift */,
+				E04E290C54DB55505F496031 /* LiveAvatarView.swift */,
 				5E8F4F7054676454B2AE64E3 /* VoicePickerView.swift */,
 			);
 			path = Avatar;
@@ -376,12 +379,12 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
-		"TEMP_1D3A2379-24FB-43D3-AD00-F374E7D9142D" /* Aegis */ = {
+		"TEMP_4B6BC9EA-B9A3-4F46-9D69-CFFE6EC344C4" /* Aegis */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_ECB4595F-CDFF-48DF-9A86-0BFC1F36B353" /* Assets.xcassets */,
-				"TEMP_691B2261-D79D-4E8F-800A-07416CEE8CCE" /* AegisApp.swift */,
-				"TEMP_53975E0C-60F7-4B76-8578-2EBE5DEA58AC" /* PrivacyInfo.xcprivacy */,
+				"TEMP_1CDAC52D-E468-49FA-9582-46BFB05D2CE3" /* Assets.xcassets */,
+				"TEMP_27CA5B52-0635-48C8-B97B-F52700C477E2" /* AegisApp.swift */,
+				"TEMP_58F9C35D-E690-4E4E-BFB8-E8B1A648BAAA" /* PrivacyInfo.xcprivacy */,
 				89163620E0ECD5835C3307AA /* ViewModels */,
 				392625AD6BB3926E53C53250 /* Providers */,
 				D2A03F27D1AD5DD1289210C5 /* Models */,
@@ -455,11 +458,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A044791CCAE4F821F62C1B /* AppIcon.png in Resources */,
-				751EB90AB105A5A5FEFB2422 /* Assets.xcassets in Resources */,
+				2DA56BE9E9FF31B9CFFEFDF1 /* Assets.xcassets in Resources */,
 				C1487F51FDA8D6B1CEBCEB8F /* ChatBackground.png in Resources */,
 				6C9F0959897E70A8E11DFA01 /* LaunchScreen.png in Resources */,
 				D69783F4A416021202FA0BC0 /* OnboardingBackground.png in Resources */,
-				7A7C9ABD8F098162714EA11D /* PrivacyInfo.xcprivacy in Resources */,
+				95845D6355E6EBA19879F696 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +477,7 @@
 				DF7EC52E768F7BFFB06880D2 /* AIBackendStepView.swift in Sources */,
 				50F93BBE38A94F58BED567B5 /* AIProvider.swift in Sources */,
 				F541486060F38A0B03815F23 /* ActivateSceneIntent.swift in Sources */,
-				ACCFA98A473AA9089647178E /* AegisApp.swift in Sources */,
+				AFE255AE1B1E747CD477FC61 /* AegisApp.swift in Sources */,
 				95D13DDAF6F48873BD79B3D4 /* AegisTheme.swift in Sources */,
 				AF8B54F9A3671F66A080B544 /* AnthropicProvider.swift in Sources */,
 				EC35F0ECF53312352B70AD0C /* AppleAIProvider.swift in Sources */,
@@ -505,6 +508,7 @@
 				A6F287B3EED5888251CE8532 /* HomeKitCameraSource.swift in Sources */,
 				36F23693B2C62CD3E306C64F /* HomeKitProvider.swift in Sources */,
 				AA815AAC954145AC4A11F6FB /* KeychainService.swift in Sources */,
+				88450017DA9C307E8E8CEE8F /* LiveAvatarView.swift in Sources */,
 				26D0ABE4FE9FD01A4B9F313E /* MainTabView.swift in Sources */,
 				5AA1B9CB201902E4EEF56202 /* MessageBubbleView.swift in Sources */,
 				9801273C95592D950B36DDB6 /* ModelPickerView.swift in Sources */,

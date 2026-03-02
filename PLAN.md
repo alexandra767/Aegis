@@ -139,6 +139,25 @@ Aegis uses a **protocol-based architecture** with four core abstractions that al
 - `Views/App/MainTabView.swift` — 3-tab layout: Home | Chat | Settings
 - Tab switching via NotificationCenter from quick action buttons
 
+#### Step 11 — Auto-Speak & Live Avatar Mode ✅ COMPLETE
+- `ChatViewModel.lastCompletedResponseText` signals when response finishes streaming
+- `ChatView` observes and auto-speaks via `speechService.speak(text:)` — no manual "Speak" tap needed
+- Auto-speak toggle button in chat avatar header (speaker icon)
+- `Views/Avatar/LiveAvatarView.swift` — full-screen face-to-face voice conversation mode
+  - Large 220pt avatar (breathing, blinking, floating, mouth sync)
+  - Mic button (tap to talk, tap to send), caption overlay, status indicators
+  - Shares ChatViewModel — chat messages update silently in background
+  - Launched from `person.wave.2.fill` icon in chat input bar
+  - Presented as `.fullScreenCover`
+
+#### Step 12 — Performance & Stability Fixes ✅ COMPLETE
+- SpeechRecognitionService: removed `@MainActor` (AVAudioEngine crashes with actor isolation)
+- SpeechService: replaced Timer+Task mouth animation with single Task loop (memory fix)
+- AvatarView: blink Task cancelled on `onDisappear` (memory fix)
+- MessageBubbleView: plain text during streaming, markdown only after complete (lag fix)
+- Fresh AVAudioEngine per STT session, `.playAndRecord` audio session, 300ms TTS→STT delay
+- SpeechService.stop() deactivates audio session for clean handoff
+
 #### Phase 2 — COMPLETE
 
 ### Phase 3 — Smart Home
@@ -256,6 +275,7 @@ Aegis/
     ├── Avatar/                        # Phase 2
     │   ├── AvatarPickerView.swift     # avatar selection grid
     │   ├── AvatarView.swift           # animated avatar display
+    │   ├── LiveAvatarView.swift       # full-screen voice conversation mode
     │   └── VoicePickerView.swift      # voice selection list
     ├── Onboarding/
     │   ├── AIBackendStepView.swift

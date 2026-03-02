@@ -16,10 +16,15 @@ struct MessageBubbleView: View {
                     .padding(.top, 4)
             }
 
-            VStack(alignment: message.isUser ? .trailing : .leading, spacing: 4) {
+            VStack(alignment: message.isUser ? .trailing : .leading, spacing: 6) {
                 // Content
                 if message.isStreaming && message.content.isEmpty {
                     streamingIndicator
+                } else if message.isStreaming {
+                    // Plain text during streaming — skip expensive markdown parsing
+                    Text(message.content)
+                        .font(.body)
+                        .foregroundStyle(.white)
                 } else {
                     Text(attributedContent)
                         .font(.body)
@@ -43,11 +48,11 @@ struct MessageBubbleView: View {
                     Text(message.timestamp, style: .time)
                         .font(.caption2)
                         .foregroundStyle(AegisTheme.textMuted)
+                }
 
-                    // Speak button for assistant messages
-                    if message.isAssistant && !message.content.isEmpty && !message.isStreaming {
-                        speakButton
-                    }
+                // Speak button — prominent, below message content
+                if message.isAssistant && !message.content.isEmpty && !message.isStreaming {
+                    speakButton
                 }
             }
             .padding(.horizontal, 14)
@@ -73,9 +78,19 @@ struct MessageBubbleView: View {
                     service.speak(text: message.content)
                 }
             } label: {
-                Image(systemName: service.isSpeaking ? "stop.circle.fill" : "speaker.wave.2.fill")
-                    .font(.caption)
-                    .foregroundStyle(service.isSpeaking ? AegisTheme.orange : AegisTheme.cyan.opacity(0.7))
+                HStack(spacing: 6) {
+                    Image(systemName: service.isSpeaking ? "stop.circle.fill" : "speaker.wave.2.fill")
+                        .font(.subheadline)
+                    Text(service.isSpeaking ? "Stop" : "Speak")
+                        .font(.caption.weight(.medium))
+                }
+                .foregroundStyle(service.isSpeaking ? AegisTheme.orange : AegisTheme.cyan)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(
+                    (service.isSpeaking ? AegisTheme.orange : AegisTheme.cyan).opacity(0.12)
+                )
+                .clipShape(Capsule())
             }
             .buttonStyle(.plain)
         }

@@ -14,6 +14,8 @@ struct ChatView: View {
     @State private var speechService = SpeechService()
     @State private var speechRecognitionService = SpeechRecognitionService()
     @State private var showPermissionAlert = false
+    @State private var autoSpeakEnabled = true
+    @State private var showLiveAvatar = false
 
     var body: some View {
         Group {
@@ -29,6 +31,12 @@ struct ChatView: View {
             }
             speechService.configure(voiceProviderManager: voiceProviderManager)
         }
+        .onChange(of: viewModel?.lastCompletedResponseText) { _, newText in
+            if autoSpeakEnabled, let text = newText, !text.isEmpty {
+                speechService.speak(text: text)
+                viewModel?.lastCompletedResponseText = nil
+            }
+        }
         .alert("Permissions Required", isPresented: $showPermissionAlert) {
             Button("Open Settings") {
                 if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -38,6 +46,13 @@ struct ChatView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("Aegis needs microphone and speech recognition permissions for voice chat. Please enable them in Settings.")
+        }
+        .fullScreenCover(isPresented: $showLiveAvatar) {
+            LiveAvatarView(
+                viewModel: $viewModel,
+                speechService: speechService,
+                speechRecognitionService: speechRecognitionService
+            )
         }
     }
 
@@ -170,6 +185,9 @@ struct ChatView: View {
             AegisTheme.backgroundDeep.ignoresSafeArea()
 
             VStack(spacing: 0) {
+                // Persistent avatar header — always visible, animates when speaking
+                chatAvatarHeader
+
                 if let conversation = viewModel?.activeConversation {
                     messageList(for: conversation)
                 } else {
@@ -179,6 +197,63 @@ struct ChatView: View {
                 inputBar
             }
         }
+    }
+
+    // MARK: - Avatar Header (Always Visible)
+
+    private var chatAvatarHeader: some View {
+        HStack(spacing: 12) {
+            AvatarView(
+                avatar: AvatarConfig.selected,
+                size: 44,
+                mouthOpenness: speechService.mouthOpenness,
+                isSpeaking: speechService.isSpeaking
+            )
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(AvatarConfig.selected.name)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+
+                if speechService.isSpeaking {
+                    HStack(spacing: 4) {
+                        Circle()
+                            .fill(AegisTheme.cyan)
+                            .frame(width: 6, height: 6)
+                        Text("Speaking...")
+                            .font(.caption2)
+                            .foregroundStyle(AegisTheme.cyan)
+                    }
+                } else {
+                    Text("Online")
+                        .font(.caption2)
+                        .foregroundStyle(AegisTheme.success)
+                }
+            }
+
+            Spacer()
+
+            // Auto-speak toggle
+            Button {
+                autoSpeakEnabled.toggle()
+                if !autoSpeakEnabled {
+                    speechService.stop()
+                }
+            } label: {
+                Image(systemName: autoSpeakEnabled ? "speaker.wave.2.fill" : "speaker.slash.fill")
+                    .font(.subheadline)
+                    .foregroundStyle(autoSpeakEnabled ? AegisTheme.cyan : AegisTheme.textMuted)
+                    .padding(8)
+                    .background(
+                        (autoSpeakEnabled ? AegisTheme.cyan : AegisTheme.textMuted).opacity(0.12)
+                    )
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(AegisTheme.background.opacity(0.95))
     }
 
     // MARK: - Toolbar
@@ -310,7 +385,16 @@ struct ChatView: View {
                     .padding(.bottom, 4)
             }
 
-            HStack(spacing: 12) {
+            HStack(spacing: 10) {
+                // Live avatar mode button
+                Button {
+                    showLiveAvatar = true
+                } label: {
+                    Image(systemName: "person.wave.2.fill")
+                        .font(.title3)
+                        .foregroundStyle(AegisTheme.cyan)
+                }
+
                 // Mic button — tap to toggle recording
                 Button {
                     toggleVoiceInput()
@@ -394,12 +478,8 @@ struct ChatView: View {
 
                 // Stop any TTS before starting STT
                 speechService.stop()
-
-                do {
-                    try speechRecognitionService.startListening()
-                } catch {
-                    speechRecognitionService.errorMessage = error.localizedDescription
-                }
+                try? await Task.sleep(for: .milliseconds(300))
+                speechRecognitionService.startListening()
             }
         }
     }

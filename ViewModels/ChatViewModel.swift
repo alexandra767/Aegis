@@ -9,6 +9,7 @@ final class ChatViewModel {
     var isStreaming = false
     var errorMessage: String?
     var activeConversation: Conversation?
+    var lastCompletedResponseText: String?
     private var streamTask: Task<Void, Never>?
 
     private let modelContext: ModelContext
@@ -101,6 +102,12 @@ final class ChatViewModel {
 
         assistantMessage.isStreaming = false
         isStreaming = false
+
+        // Signal auto-speak with the completed response text
+        if !assistantMessage.content.isEmpty && errorMessage == nil {
+            lastCompletedResponseText = assistantMessage.content
+        }
+
         try? modelContext.save()
     }
 

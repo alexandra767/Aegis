@@ -10,15 +10,14 @@ struct AvatarView: View {
     @State private var isBlinking = false
     @State private var floatOffset: CGFloat = 0
     @State private var glowRadius: CGFloat = 8
+    @State private var blinkTask: Task<Void, Never>?
 
     var body: some View {
         ZStack {
-            // Main avatar image or SF Symbol placeholder
             avatarImage
                 .scaleEffect(breatheScale)
                 .offset(y: floatOffset)
 
-            // Blink overlay — darkens the upper portion briefly
             if isBlinking {
                 Circle()
                     .fill(Color.black.opacity(0.4))
@@ -27,7 +26,6 @@ struct AvatarView: View {
                     .transition(.opacity)
             }
 
-            // Mouth overlay when speaking
             if isSpeaking || mouthOpenness > 0.01 {
                 mouthShape
                     .offset(y: size * 0.18)
@@ -48,6 +46,10 @@ struct AvatarView: View {
             startBlinking()
             startFloating()
         }
+        .onDisappear {
+            blinkTask?.cancel()
+            blinkTask = nil
+        }
         .onChange(of: isSpeaking) { _, speaking in
             withAnimation(.easeInOut(duration: 0.3)) {
                 glowRadius = speaking ? 18 : 8
@@ -55,11 +57,8 @@ struct AvatarView: View {
         }
     }
 
-    // MARK: - Avatar Image
-
     @ViewBuilder
     private var avatarImage: some View {
-        // Try loading a custom image first, fall back to generated gradient avatar
         if let uiImage = UIImage(named: avatar.imageName) {
             Image(uiImage: uiImage)
                 .resizable()
@@ -71,8 +70,6 @@ struct AvatarView: View {
         }
     }
 
-    // MARK: - Mouth Shape
-
     private var mouthShape: some View {
         let openAmount = mouthOpenness * size * 0.12
         return Capsule()
@@ -80,8 +77,6 @@ struct AvatarView: View {
             .frame(width: size * 0.22, height: max(2, openAmount))
             .animation(.easeInOut(duration: 0.05), value: mouthOpenness)
     }
-
-    // MARK: - Animations
 
     private func startBreathing() {
         withAnimation(
@@ -93,22 +88,21 @@ struct AvatarView: View {
     }
 
     private func startBlinking() {
-        scheduleNextBlink()
-    }
-
-    private func scheduleNextBlink() {
-        let interval = Double.random(in: 3.0...5.5)
-        Task { @MainActor in
-            try? await Task.sleep(for: .seconds(interval))
-            guard !Task.isCancelled else { return }
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isBlinking = true
+        blinkTask?.cancel()
+        blinkTask = Task { @MainActor in
+            while !Task.isCancelled {
+                let interval = Double.random(in: 3.0...5.5)
+                try? await Task.sleep(for: .seconds(interval))
+                guard !Task.isCancelled else { break }
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    isBlinking = true
+                }
+                try? await Task.sleep(for: .seconds(0.15))
+                guard !Task.isCancelled else { break }
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    isBlinking = false
+                }
             }
-            try? await Task.sleep(for: .seconds(0.15))
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isBlinking = false
-            }
-            scheduleNextBlink()
         }
     }
 

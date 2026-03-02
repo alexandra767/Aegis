@@ -17,7 +17,7 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerD
 
     private var synthesizer = AVSpeechSynthesizer()
     private var audioPlayer: AVAudioPlayer?
-    private var mouthTimer: Timer?
+    private var mouthTask: Task<Void, Never>?
     private var speechStartTime: Date?
     private var voiceProviderManager: VoiceProviderManager?
 
@@ -68,6 +68,15 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerD
     }
 
     private func speakWithApple(text: String, voiceID: String? = nil) {
+        // Configure audio session for playback
+        do {
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(.playback, mode: .default, options: .duckOthers)
+            try session.setActive(true)
+        } catch {
+            // Continue anyway — TTS may still work
+        }
+
         let utterance = AVSpeechUtterance(string: text)
         let id = voiceID ?? selectedVoiceID
         if let id, let voice = AVSpeechSynthesisVoice(identifier: id) {
@@ -128,40 +137,37 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerD
         isSpeaking = false
         mouthOpenness = 0
         currentWord = ""
+        // Release audio session so STT can take over
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 
     // MARK: - Mouth Animation
 
     private func startMouthAnimation(useMetering: Bool) {
-        mouthTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
-            Task { @MainActor [weak self] in
-                guard let self, self.isSpeaking else { return }
-
+        mouthTask?.cancel()
+        mouthTask = Task { @MainActor in
+            while !Task.isCancelled && self.isSpeaking {
                 if useMetering, let player = self.audioPlayer, player.isPlaying {
-                    // Real audio-level mouth sync from AVAudioPlayer metering
                     player.updateMeters()
                     let power = player.averagePower(forChannel: 0)
-                    // power is in dB: -160 (silence) to 0 (max). Normalize to 0...1
-                    let normalized = max(0, (power + 50) / 50) // -50dB to 0dB range
+                    let normalized = max(0, (power + 50) / 50)
                     let smoothed = min(1.0, CGFloat(normalized) * 1.2)
                     self.mouthOpenness = max(0.05, smoothed)
                 } else {
-                    // Sine-wave oscillation for Apple TTS or while cloud audio loads
                     let t = Date().timeIntervalSince1970
                     let wave1 = sin(t * 11.0) * 0.25
                     let wave2 = sin(t * 7.3) * 0.15
-                    let wave3 = sin(t * 3.1) * 0.1
-                    let base = 0.35 + wave1 + wave2 + wave3
-                    let noise = Double.random(in: -0.08...0.08)
-                    self.mouthOpenness = max(0.05, min(1.0, CGFloat(base + noise)))
+                    let base = 0.35 + wave1 + wave2
+                    self.mouthOpenness = max(0.05, min(1.0, CGFloat(base)))
                 }
+                try? await Task.sleep(for: .milliseconds(80))
             }
         }
     }
 
     private func stopMouthAnimation() {
-        mouthTimer?.invalidate()
-        mouthTimer = nil
+        mouthTask?.cancel()
+        mouthTask = nil
     }
 
     // MARK: - AVSpeechSynthesizerDelegate
